@@ -2,10 +2,10 @@
   "name": "@ferrarius/monitor",
   "version": "0.0.1",
   "description": "Web monitoring panel for Ferrarius",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "scripts": {
-    "prepublish": "tsc && yarn run build",
+    "prepublish": "tsc -d && yarn run build",
     "build": "webpack --env.production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -45,6 +45,7 @@
     "webpack-dev-server": "^3.9.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "ferrarius": "^0.0.1"
   }
 }
