@@ -1,5 +1,5 @@
-import { AppBar, Box, Container, CssBaseline, Divider, Drawer, IconButton, Toolbar, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { AppBar, Box, Container, CssBaseline, Divider, Drawer, IconButton, Toolbar, Typography, Grid, Paper, List } from '@material-ui/core';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
@@ -7,10 +7,15 @@ import { createHashHistory } from 'history';
 import React from 'react';
 import { Router } from 'react-router-dom';
 import { Copyright } from './components/Copyright';
+import { mainListItems } from './components/ListItems';
+import { ServerList } from './components/ServerList';
+import { Ferrarius } from './components/Ferrarius';
 
 const history = createHashHistory();
 
 const drawerWidth = 240;
+
+const theme = createMuiTheme();
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -92,7 +97,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export function App() {
-  const classes = useStyles(this.props);
+  const classes = useStyles(theme);
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -129,10 +134,28 @@ export function App() {
             </IconButton>
           </div>
           <Divider />
+          <List>{mainListItems}</List>
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={8} lg={9}>
+                <Paper className={fixedHeightPaper}>
+
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper className={fixedHeightPaper}>
+                  <Ferrarius />
+                </Paper>
+              </Grid>
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  <ServerList />
+                </Paper>
+              </Grid>
+            </Grid>
             <Box pt={4}>
               <Copyright />
             </Box>
