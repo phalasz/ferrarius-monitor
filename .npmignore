@@ -1,3 +1,11 @@
 /src
 /media
 /example
+
+ferrarius-monitor.code-workspace
+.editorconfig
+webpack.config.js
+tsconfig.json
+yarn-error.log
+*.tgz
+.github/

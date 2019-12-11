@@ -27,6 +27,7 @@
   "homepage": "https://github.com/phalasz/ferrarius-monitor#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "ferrarius": "^0.0.1",
     "superagent": "^5.1.2"
   },
   "devDependencies": {
