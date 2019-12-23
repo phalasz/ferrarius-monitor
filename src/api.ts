@@ -1,12 +1,13 @@
 import express from 'express';
 import { hostStorage, Logger } from 'ferrarius'
 
-export function setupApiRoutes() {
+export function setupApiRoutes(options?: any) {
   const api = express.Router();
+  const masterServer = options.masterServer;
 
   api.get('/list', async (req: express.Request, res: express.Response) => {
     try {
-      const hosts = await hostStorage.query({});
+      const hosts = await masterServer.query({});
 
       res.json(
         hosts.map((host) => {
