@@ -1,9 +1,8 @@
 import express from 'express';
-import { hostStorage, Logger } from 'ferrarius'
+import { hostStorage, Logger, Server } from 'ferrarius'
 
-export function setupApiRoutes(options?: any) {
+export function setupApiRoutes(masterServer: Server) {
   const api = express.Router();
-  const masterServer = options.masterServer;
 
   api.get('/list', async (req: express.Request, res: express.Response) => {
     try {
